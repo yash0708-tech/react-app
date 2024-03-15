@@ -2,7 +2,7 @@
 import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import { useNavigate } from 'react-router-dom';
-import { signIn } from 'aws-amplify/auth';
+import { signIn, signUp } from 'aws-amplify/auth';
 import { Amplify } from 'aws-amplify';
 import amplifyconfig from './amplifyconfiguration.json';
 Amplify.configure(amplifyconfig);
