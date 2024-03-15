@@ -1,0 +1,13 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /root
+hooks:
+  AfterInstall:
+    - location: scripts/after_install.sh
+      runas: root
+
+  
+
+  
