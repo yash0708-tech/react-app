@@ -1,7 +1,12 @@
+
 import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import { useNavigate } from 'react-router-dom';
 import { signIn } from 'aws-amplify/auth';
+import { useEffect } from 'react';
+import { Amplify } from 'aws-amplify';
+import config from '../amplifyconfiguration.json';
+Amplify.configure(config);
 
 
 function Register({ signOut, user }) {
@@ -24,6 +29,7 @@ function Register({ signOut, user }) {
       }
     },
   };
+  
   return (
     <>
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh',width:'100vw' }}>

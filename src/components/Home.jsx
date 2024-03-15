@@ -20,9 +20,13 @@ async function handleSignOut() {
   const [userName,setuserName ]=useState("")
 
   useEffect(() => {
-    currentSession();
-    currentAuthenticatedUser()
-  });
+    
+      currentAuthenticatedUser();
+      if(userName!==""){
+        currentSession()
+      }
+    
+  }, );
   
 
 async function currentAuthenticatedUser() {
@@ -33,19 +37,22 @@ async function currentAuthenticatedUser() {
     console.log(err);
   }
 }
-  const currentSession = async () => {
-    try {
-      const { accessToken, idToken } = (await fetchAuthSession()).tokens ?? {};
+const currentSession = async () => {
+  try {
+    const session = await fetchAuthSession();
+    if (session && session.tokens) {
+      const { accessToken, idToken } = session.tokens;
       if (accessToken && idToken) {
         setIsLoggedIn(true);
       } else {
         setIsLoggedIn(false);
       }
-    } catch (err) {
-      console.log(err);
-      setIsLoggedIn(false);
     }
-  };
+  } catch (err) {
+    console.log(err);
+    setIsLoggedIn(false);
+  }
+};
 
   return (
     <>
