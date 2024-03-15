@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { signIn } from 'aws-amplify/auth';
 import { useEffect } from 'react';
 import { Amplify } from 'aws-amplify';
-import config from '../amplifyconfiguration.json';
+import config from './amplifyconfiguration.json';
 Amplify.configure(config);
 
 
