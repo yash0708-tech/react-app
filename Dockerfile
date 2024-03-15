@@ -12,7 +12,7 @@ COPY package.json package-lock.json ./
 RUN npm install
 
 # Build the React app (if needed)
-RUN npm run build
+
 
 # Expose the port on which your React app will run (if needed)
 EXPOSE 3001
